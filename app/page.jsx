@@ -12,7 +12,7 @@ export const Home = () => {
       params: {
         id: "37i9dQZEVXbLRQDuF5jeBp",
         offset: "0",
-        limit: "5",
+        limit: "6",
       },
       headers: {
         "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
@@ -30,8 +30,8 @@ export const Home = () => {
   console.log(songs);
   return (
     <div className="home_container">
-      <h1>Beead Music</h1>
       <div className="popular_usa_container">
+        <h1>Popular Tracks in USA</h1>
         <ul className="music_list">
           {songs ? (
             <>
