@@ -1,7 +1,22 @@
+@font-face {
+  font-family: Graphik;
+  src: url(graphik-14.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Graphik;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black !important;
 }
 .nav_container {
   width: 100%;
@@ -10,11 +25,24 @@
 .nb_container {
   width: 50%;
   display: flex;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
+.nb_list_container {
+  width: 40%;
+}
+
+.nb_list {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.nb_link {
+  color: black;
+}
+
 .home_container {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   width: 100%;
   height: 100%;
   margin: auto;
@@ -30,12 +58,10 @@
 .music_card {
   margin: 0 0 0 0;
   width: calc(100% / 6);
-  display: inline-block;
+  text-align: center;
 }
 
 .music_list {
-  list-style-type: none;
-  display: flex;
   width: 100%;
   margin: 0 0 0 -16px;
 }
