@@ -7,7 +7,7 @@ const MusicList = ({ props }) => {
         <>
           {props.map((song) => (
             <MusicCard
-              key={song.track.id}
+              id={song.track.id}
               title={song.track.name}
               artist={song.track.artists[0].name}
               cover={song.track.album.images[0].url}

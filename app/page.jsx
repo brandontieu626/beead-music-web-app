@@ -1,12 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import MusicList from "@/components/MusicList";
-import { fetchTracks } from "@/utils/fetchApi";
+import { fetchPlaylistTracks } from "@/utils/fetchApi";
 
 export const Home = () => {
   const [songs, setSongs] = useState([]);
   async function getPopularTracks() {
-    const tracks = await fetchTracks("37i9dQZEVXbLRQDuF5jeBp", "0", "6");
+    const tracks = await fetchPlaylistTracks(
+      "37i9dQZEVXbLRQDuF5jeBp",
+      "0",
+      "6"
+    );
+
     setSongs(tracks);
   }
   useEffect(() => {
