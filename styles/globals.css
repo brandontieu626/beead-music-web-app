@@ -81,5 +81,13 @@ a {
   width: 50%;
   margin: 0 auto;
   display: flex;
+  /* justify-content: space-around; */
+}
+
+.track_description_container {
+  margin: 0 0 0 50px;
+}
+
+.track_stats_container {
   justify-content: space-around;
 }
