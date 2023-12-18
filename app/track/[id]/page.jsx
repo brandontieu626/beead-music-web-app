@@ -19,7 +19,6 @@ export const TrackInfo = ({ params }) => {
     sourceNames: [""],
     roleCredits: [{ roleTitle: "", artists: [] }],
   });
-  ///lyrics: { lines: [{ words: "" }] }
   const [trackLyrics, setTrackLyrics] = useState([{ words: "" }]);
 
   async function getTrackInfo() {
@@ -48,21 +47,19 @@ export const TrackInfo = ({ params }) => {
     <div>
       <div className="track_info_container">
         <div>
-          <Image src={trackData.album.images[0].url} height={464} width={464} />
+          <Image src={trackData.album.images[0].url} height={400} width={400} />
           <ul className="track_stats_container">
             <li>Label:{" " + trackCredits.sourceNames[0]}</li>
             <li>Type:{" " + trackData.type.toUpperCase()}</li>
             <li>Popularity:{" " + trackData.popularity}</li>
           </ul>
-          {/* <div>Popularity:{" " + trackData.popularity}</div>
-          <div>{trackData.type.toUpperCase()}</div>
-          <div>{trackCredits.sourceNames[0]}</div> */}
         </div>
         <div className="track_description_container">
-          <h1>{trackData.name}</h1>
-          {/* <h1>{trackData.artists[0].uri.slice(15)}</h1> */}
-          <h2>{trackData.artists[0].name}</h2>
-          <h2>{trackData.album.release_date.slice(0, 4)}</h2>
+          <div>
+            <h1>{trackData.name}</h1>
+            <h2>{trackData.artists[0].name}</h2>
+            <h2>{trackData.album.release_date.slice(0, 4)}</h2>
+          </div>
           <div>
             {trackCredits.roleCredits.map((role) => (
               <div>
@@ -77,9 +74,26 @@ export const TrackInfo = ({ params }) => {
               </div>
             ))}
           </div>
+          <div>
+            <iframe
+              styles="border-radius:12px"
+              src={
+                "https://open.spotify.com/embed/track/" +
+                params.id +
+                "?utm_source=generator"
+              }
+              width="50%"
+              height="164"
+              frameBorder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+          {/* <h1>{trackData.artists[0].uri.slice(15)}</h1> */}
         </div>
       </div>
-      <div>
+      <div className="track_lyrics_container">
         {trackLyrics.map((line) => (
           <div>{line.words}</div>
         ))}
