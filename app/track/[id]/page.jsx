@@ -6,6 +6,7 @@ import {
 } from "@/utils/fetchApi";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 export const TrackInfo = ({ params }) => {
   const [trackData, setTrackData] = useState({
     name: "",
@@ -45,7 +46,7 @@ export const TrackInfo = ({ params }) => {
   console.log(trackLyrics);
   return (
     <div>
-      <div className="track_info_container">
+      <div className="row track_info_container">
         <div>
           <Image src={trackData.album.images[0].url} height={400} width={400} />
           <ul className="track_stats_container">
@@ -57,7 +58,9 @@ export const TrackInfo = ({ params }) => {
         <div className="track_description_container">
           <div>
             <h1>{trackData.name}</h1>
-            <h2>{trackData.artists[0].name}</h2>
+            <Link href={`/artist/${trackData.artists[0].uri.slice(15)}`}>
+              <h2>{trackData.artists[0].name}</h2>
+            </Link>
             <h2>{trackData.album.release_date.slice(0, 4)}</h2>
           </div>
           <div>
@@ -82,7 +85,7 @@ export const TrackInfo = ({ params }) => {
                 params.id +
                 "?utm_source=generator"
               }
-              width="50%"
+              width="100%"
               height="164"
               frameBorder="0"
               allowfullscreen=""
@@ -90,10 +93,9 @@ export const TrackInfo = ({ params }) => {
               loading="lazy"
             ></iframe>
           </div>
-          {/* <h1>{trackData.artists[0].uri.slice(15)}</h1> */}
         </div>
       </div>
-      <div className="track_lyrics_container">
+      <div className="row track_lyrics_container">
         {trackLyrics.map((line) => (
           <div>{line.words}</div>
         ))}

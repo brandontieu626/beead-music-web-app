@@ -7,6 +7,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Graphik;
+  color: #d8e0e8;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: #14181c;
 }
 
 ul {
@@ -16,17 +23,23 @@ ul {
 
 a {
   text-decoration: none;
-  color: black !important;
-}
-.nav_container {
-  width: 100%;
+  color: #d8e0e8 !important;
 }
 
+.row {
+  width: 50%;
+  margin: 0 auto;
+}
 .nb_container {
   width: 50%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  padding: 12px 0px 12px 0px;
+}
+
+.nb_site_title {
+  font-size: 28px;
 }
 
 .nb_list_container {
@@ -38,8 +51,17 @@ a {
   justify-content: space-around;
 }
 
-.nb_link {
-  color: black;
+.footer {
+  background-color: #14181c;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.footer_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0px;
 }
 
 .home_container {
@@ -48,11 +70,6 @@ a {
   margin: auto;
   margin-top: 0%;
   text-align: center;
-}
-
-.popular_usa_container {
-  width: 50%;
-  margin: 0 auto;
 }
 
 .music_card {
@@ -66,9 +83,6 @@ a {
   margin: 0 0 0 -16px;
 }
 
-.mc_artist_title {
-}
-
 .mc_artist {
   margin: 0 0 15px 0;
 }
@@ -78,14 +92,14 @@ a {
 }
 
 .track_info_container {
-  width: 50%;
-  margin: 0 auto 50px auto;
+  margin-bottom: 50px;
   display: flex;
-  /* justify-content: space-around; */
 }
 
 .track_description_container {
   margin: 0 0 0 50px;
+  max-width: 871px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -103,6 +117,7 @@ a {
 }
 
 .track_lyrics_container {
-  width: 50%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

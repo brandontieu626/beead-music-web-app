@@ -21,7 +21,7 @@ export const Home = () => {
   console.log(songs);
   return (
     <div className="home_container">
-      <div className="popular_usa_container">
+      <div className="row">
         <h1>Popular Tracks in USA</h1>
         <MusicList props={songs} />
       </div>

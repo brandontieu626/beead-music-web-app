@@ -2,17 +2,15 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="nav_container">
+    <div>
       <div className="nb_container">
-        <div>
+        <div className="nb_site_title">
           <Link href="/">Beead</Link>
         </div>
         <nav className="nb_list_container">
           <ul className="nb_list">
             <li>
-              <Link href="/music" className="nb_link">
-                MUSIC
-              </Link>
+              <Link href="/music">MUSIC</Link>
             </li>
             <li>
               <Link href="/newreleases">NEW RELEASES</Link>
