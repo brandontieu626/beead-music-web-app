@@ -47,8 +47,13 @@ export const TrackInfo = ({ params }) => {
   return (
     <div>
       <div className="row track_info_container">
-        <div>
-          <Image src={trackData.album.images[0].url} height={400} width={400} />
+        <div className="track_cover_container">
+          <Image
+            className="track_image"
+            src={trackData.album.images[0].url}
+            height={400}
+            width={400}
+          />
           <ul className="track_stats_container">
             <li>Label:{" " + trackCredits.sourceNames[0]}</li>
             <li>Type:{" " + trackData.type.toUpperCase()}</li>
