@@ -74,7 +74,25 @@ const fetchTrackLyrics = async (id) => {
   return response.data.lyrics.lines;
 };
 
-const fetchArtist = async (id) => {
+const fetchArtistOverview = async (id) => {
+  const options = {
+    method: "GET",
+    url: "https://spotify23.p.rapidapi.com/artist_overview/",
+    params: {
+      id: id,
+    },
+    headers: {
+      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
+      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+    },
+  };
+
+  const response = await axios.request(options);
+
+  return response.data.data.artist;
+};
+
+const fetchArtistGenre = async (id) => {
   const options = {
     method: "GET",
     url: "https://spotify23.p.rapidapi.com/artists/",
@@ -89,7 +107,7 @@ const fetchArtist = async (id) => {
 
   const response = await axios.request(options);
 
-  return response.data.artists[0];
+  return response.data.artists[0].genres;
 };
 
 export {
@@ -97,5 +115,6 @@ export {
   fetchTrack,
   fetchTrackCredits,
   fetchTrackLyrics,
-  fetchArtist,
+  fetchArtistOverview,
+  fetchArtistGenre,
 };
