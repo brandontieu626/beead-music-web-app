@@ -38,8 +38,10 @@ export const TrackInfo = ({ params }) => {
   }
   useEffect(() => {
     getTrackInfo();
-    getTrackCredits();
-    getTrackLyrics();
+    setTimeout(() => {
+      getTrackCredits();
+      getTrackLyrics();
+    }, 500);
   }, []);
   console.log(trackData);
   console.log(trackCredits);

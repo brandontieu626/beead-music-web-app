@@ -1,7 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
-import { fetchArtistOverview, fetchArtistGenre } from "@/utils/fetchApi";
+import {
+  fetchArtistOverview,
+  fetchArtistGenre,
+  fetchArtistAlbums,
+} from "@/utils/fetchApi";
 import Image from "next/image";
+import AlbumCard from "@/components/AlbumCard";
 const ArtistInfo = ({ params }) => {
   const [artist, setArtist] = useState({
     profile: { name: "", biography: { text: "" } },
@@ -10,6 +15,13 @@ const ArtistInfo = ({ params }) => {
   });
 
   const [artistGenres, setArtistGenres] = useState([]);
+
+  const [artistAlbums, setArtistAlbums] = useState([
+    { totalCount: 0, items: [] },
+  ]);
+
+  const [isReadMore, setIsReadMore] = useState(false);
+
   async function getArtistInfo() {
     const data = await fetchArtistOverview(params.id);
     setArtist(data);
@@ -18,12 +30,25 @@ const ArtistInfo = ({ params }) => {
     const data = await fetchArtistGenre(params.id);
     setArtistGenres(data);
   }
+
+  async function getArtistAlbums() {
+    const data = await fetchArtistAlbums(params.id);
+    setArtistAlbums(data);
+  }
+
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
   useEffect(() => {
     getArtistInfo();
-    getArtistGenre();
+    setTimeout(() => {
+      getArtistGenre();
+      getArtistAlbums();
+    }, 500);
   }, []);
   console.log(artist);
   console.log(artistGenres);
+  console.log(artistAlbums);
   return (
     <div>
       <div className="row artist_info_container">
@@ -47,9 +72,30 @@ const ArtistInfo = ({ params }) => {
         </div>
         <div className="artist_description_container">
           <h1>{artist.profile.name}</h1>
-          <p>{artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "")}</p>
+          {artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "").length <
+          2000 ? (
+            <p>{artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "")}</p>
+          ) : isReadMore ? (
+            <p>
+              {artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "")}
+              <span onClick={toggleReadMore} className="morebutton">
+                {" x"}
+              </span>
+            </p>
+          ) : (
+            <p>
+              {artist.profile.biography.text
+                .replace(/<\/?a[^>]*>/g, "")
+                .slice(0, 2000)}
+              {"... "}
+              <span onClick={toggleReadMore} className="morebutton">
+                more
+              </span>
+            </p>
+          )}
+
           <div>
-            {"Genre: "}
+            {"GENRE: "}
             {artistGenres.map((genre, i, artistGenres) =>
               i + 1 == artistGenres.length ? (
                 <span>{genre[0].toUpperCase() + genre.slice(1)}</span>
@@ -59,6 +105,9 @@ const ArtistInfo = ({ params }) => {
             )}
           </div>
         </div>
+      </div>
+      <div className="row">
+        <AlbumCard />
       </div>
     </div>
   );
