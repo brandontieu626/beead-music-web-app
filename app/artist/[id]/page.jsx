@@ -107,7 +107,22 @@ const ArtistInfo = ({ params }) => {
         </div>
       </div>
       <div className="row">
-        <AlbumCard />
+        <ul className="music_list">
+          {artistAlbums.items ? (
+            <>
+              {artistAlbums.items.map((album) => (
+                <AlbumCard
+                  id={album.releases.items[0].id}
+                  title={album.releases.items[0].name}
+                  artist={album.releases.items[0].name}
+                  cover={album.releases.items[0].coverArt.sources[0].url}
+                />
+              ))}
+            </>
+          ) : (
+            <span></span>
+          )}
+        </ul>
       </div>
     </div>
   );
