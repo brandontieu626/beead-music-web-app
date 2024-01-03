@@ -14,11 +14,6 @@ const MusicCard = ({ id, title, artist, cover }) => {
         </div>
         <h3 className="mc_artist">{artist}</h3>
         <h3 className="mc_title">{title}</h3>
-
-        {/* <div className="mc_artist_title">
-          <h3 className="mc_artist">{artist}</h3>
-          <h3 className="mc_title">{title}</h3>
-        </div> */}
       </Link>
     </li>
   );

@@ -7,10 +7,12 @@ import {
 } from "@/utils/fetchApi";
 import Image from "next/image";
 import AlbumCard from "@/components/AlbumCard";
+import MusicCard from "@/components/MusicCard";
 const ArtistInfo = ({ params }) => {
   const [artist, setArtist] = useState({
     profile: { name: "", biography: { text: "" } },
     visuals: { avatarImage: { sources: [{ url: "" }] } },
+    discography: { topTracks: { items: [] } },
     stats: { worldRank: 0, monthlyListeners: 0 },
   });
 
@@ -71,7 +73,7 @@ const ArtistInfo = ({ params }) => {
           </ul>
         </div>
         <div className="artist_description_container">
-          <h1>{artist.profile.name}</h1>
+          <h1 className="titles">{artist.profile.name}</h1>
           {artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "").length <
           2000 ? (
             <p>{artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "")}</p>
@@ -106,23 +108,47 @@ const ArtistInfo = ({ params }) => {
           </div>
         </div>
       </div>
-      <div className="row">
-        <ul className="music_list">
-          {artistAlbums.items ? (
-            <>
-              {artistAlbums.items.map((album) => (
-                <AlbumCard
-                  id={album.releases.items[0].id}
-                  title={album.releases.items[0].name}
-                  artist={album.releases.items[0].name}
-                  cover={album.releases.items[0].coverArt.sources[0].url}
-                />
-              ))}
-            </>
-          ) : (
-            <span></span>
-          )}
-        </ul>
+      <div className="container">
+        <div className="row">
+          <h1 className="titles artist_labels">ALBUMS</h1>
+          <ul className="music_list">
+            {artistAlbums.items ? (
+              <>
+                {artistAlbums.items.map((album) => (
+                  <AlbumCard
+                    id={album.releases.items[0].id}
+                    title={album.releases.items[0].name}
+                    artist={album.releases.items[0].name}
+                    cover={album.releases.items[0].coverArt.sources[0].url}
+                  />
+                ))}
+              </>
+            ) : (
+              <span></span>
+            )}
+          </ul>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row">
+          <h1 className="titles artist_labels">TOP TRACKS</h1>
+          <ul className="music_list">
+            {artist.discography.topTracks.items ? (
+              <>
+                {artist.discography.topTracks.items.map((track) => (
+                  <MusicCard
+                    id={track.track.id}
+                    title={track.track.name}
+                    artist={""}
+                    cover={track.track.album.coverArt.sources[0].url}
+                  />
+                ))}
+              </>
+            ) : (
+              <span></span>
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );

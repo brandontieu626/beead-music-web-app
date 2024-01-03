@@ -64,7 +64,7 @@ export const TrackInfo = ({ params }) => {
         </div>
         <div className="track_description_container">
           <div>
-            <h1>{trackData.name}</h1>
+            <h1 className="titles">{trackData.name}</h1>
             <Link href={`/artist/${trackData.artists[0].uri.slice(15)}`}>
               <h2>{trackData.artists[0].name}</h2>
             </Link>
