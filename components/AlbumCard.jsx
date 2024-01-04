@@ -1,5 +1,6 @@
 import Image from "next/image";
-const AlbumCard = ({ id, title, cover }) => {
+import Link from "next/link";
+const AlbumCard = ({ id, title, cover, year }) => {
   return (
     <li className="music_card">
       <div className="image_wrap">
@@ -10,13 +11,16 @@ const AlbumCard = ({ id, title, cover }) => {
           height={166.66}
         />
       </div>
-      <h3 className="mc_title">
-        {title.length < 25 ? (
-          <span>{title}</span>
-        ) : (
-          <span>{title.slice(0, 26) + "..."}</span>
-        )}
-      </h3>
+      <Link href={`/album/${id}`}>
+        <div>
+          {title.length < 25 ? (
+            <h3 className="mc_artist_title">{title}</h3>
+          ) : (
+            <h3 className="mc_artist_title">{title.slice(0, 26) + "..."}</h3>
+          )}
+        </div>
+      </Link>
+      <h3 className="mc_year">{year}</h3>
     </li>
   );
 };

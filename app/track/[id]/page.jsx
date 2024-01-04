@@ -48,8 +48,8 @@ export const TrackInfo = ({ params }) => {
   console.log(trackLyrics);
   return (
     <div>
-      <div className="row track_info_container">
-        <div className="track_cover_container">
+      <div className="row info_container">
+        <div className="image_cover_container">
           <Image
             className="track_image"
             src={trackData.album.images[0].url}
@@ -62,11 +62,11 @@ export const TrackInfo = ({ params }) => {
             <li>Popularity:{" " + trackData.popularity}</li>
           </ul>
         </div>
-        <div className="track_description_container">
+        <div className="description_container">
           <div>
             <h1 className="titles">{trackData.name}</h1>
             <Link href={`/artist/${trackData.artists[0].uri.slice(15)}`}>
-              <h2>{trackData.artists[0].name}</h2>
+              <h2 className="mc_artist_title">{trackData.artists[0].name}</h2>
             </Link>
             <h2>{trackData.album.release_date.slice(0, 4)}</h2>
           </div>

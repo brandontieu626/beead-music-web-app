@@ -10,7 +10,9 @@ const MusicList = ({ props }) => {
               id={song.track.id}
               title={song.track.name}
               artist={song.track.artists[0].name}
+              artistId={song.track.artists[0].id}
               cover={song.track.album.images[0].url}
+              type={"music_card"}
             />
           ))}
         </>
