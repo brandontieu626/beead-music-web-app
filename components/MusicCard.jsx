@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-const MusicCard = ({ id, title, artist, artistId, cover, type }) => {
+const MusicCard = ({ id, title, artist, artistId, cover }) => {
   return (
     <li className="music_card">
       <div className="image_wrap">

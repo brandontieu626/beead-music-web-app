@@ -56,7 +56,7 @@ a {
 }
 
 .footer {
-  background-color: #14181c;
+  /* background-color: #14181c; */
   position: relative;
   width: 100%;
 }
@@ -102,7 +102,7 @@ a {
 
 .music_list {
   width: 100%;
-  margin: 0 0 0 -20px;
+  margin: 0 0 50px -20px;
   display: grid;
   grid-template-columns: repeat(6, calc(100% / 6));
   row-gap: 20px;
@@ -113,6 +113,15 @@ a {
   margin: 0 0 0 -20px;
   display: grid;
   grid-template-columns: repeat(5, calc(100% / 5));
+}
+
+.artist_title {
+  max-width: 166.66px;
+}
+
+.artist_title:hover {
+  color: rgb(255, 64, 59);
+  transition-duration: 0.15s;
 }
 
 .mc_artist_title {
@@ -138,6 +147,12 @@ a {
   max-height: 400px;
 }
 
+.album_image {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+}
+
 .titles {
   font-family: Tiempos;
 }
@@ -145,6 +160,7 @@ a {
 .album_title {
   font-weight: bold;
   font-size: 46px;
+  margin-bottom: 15px;
 }
 
 .description_container {
@@ -157,7 +173,7 @@ a {
 }
 
 .track_stats_container {
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .track_credits_container {
@@ -182,6 +198,12 @@ a {
 .image_cover_container {
   width: 100%;
   max-width: 400px;
+  height: 100%;
+}
+
+.album_image_cover_container {
+  width: 100%;
+  max-width: 500px;
   height: 100%;
 }
 

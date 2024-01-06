@@ -16,7 +16,7 @@ const AlbumCard = ({ id, title, cover, year }) => {
           {title.length < 25 ? (
             <h3 className="mc_artist_title">{title}</h3>
           ) : (
-            <h3 className="mc_artist_title">{title.slice(0, 26) + "..."}</h3>
+            <h3 className="mc_artist_title">{title.slice(0, 25) + "..."}</h3>
           )}
         </div>
       </Link>

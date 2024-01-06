@@ -66,7 +66,7 @@ export const TrackInfo = ({ params }) => {
           <div>
             <h1 className="titles">{trackData.name}</h1>
             <Link href={`/artist/${trackData.artists[0].uri.slice(15)}`}>
-              <h2 className="mc_artist_title">{trackData.artists[0].name}</h2>
+              <h2 className="artist_title">{trackData.artists[0].name}</h2>
             </Link>
             <h2>{trackData.album.release_date.slice(0, 4)}</h2>
           </div>
