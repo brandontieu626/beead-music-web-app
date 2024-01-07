@@ -113,6 +113,7 @@ a {
   margin: 0 0 0 -20px;
   display: grid;
   grid-template-columns: repeat(5, calc(100% / 5));
+  row-gap: 25px;
 }
 
 .artist_title {

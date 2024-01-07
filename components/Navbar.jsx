@@ -1,6 +1,16 @@
+"use client";
 import Link from "next/link";
 
 const Navbar = () => {
+  function handleSearch(term) {
+    console.log(term);
+  }
+
+  function submitFunc() {
+    event.preventDefault();
+    console.log("submit");
+  }
+
   return (
     <div>
       <div className="nb_container">
@@ -16,8 +26,13 @@ const Navbar = () => {
               <Link href="/newreleases">NEW RELEASES</Link>
             </li>
             <li>
-              <form>
-                <input type="text" placeholder="Search music"></input>
+              <form action="/search">
+                <input
+                  type="text"
+                  name="query"
+                  placeholder="Search music"
+                ></input>
+                <button type="submit">search</button>
               </form>
             </li>
           </ul>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import MusicCard from "@/components/MusicCard";
 import Image from "next/image";
 import Link from "next/link";
+import AlbumCard from "@/components/AlbumCard";
 const AlbumInfo = ({ params }) => {
   const [albumData, setAlbumData] = useState({
     name: "",
@@ -16,6 +17,32 @@ const AlbumInfo = ({ params }) => {
     tracks: { totalCount: "" },
     label: "",
     copyright: { items: [{ type: "", text: "" }] },
+    moreAlbumsByArtist: {
+      items: [
+        {
+          discography: {
+            popularReleases: {
+              items: [
+                {
+                  releases: {
+                    items: [
+                      {
+                        id: "",
+                        name: "",
+                        date: { year: "" },
+                        coverArt: {
+                          sources: [{ url: "" }, { url: "" }, { url: "" }],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        },
+      ],
+    },
   });
 
   const [albumTracks, setAlbumTracks] = useState({
@@ -39,8 +66,7 @@ const AlbumInfo = ({ params }) => {
   // document.body.style.backgroundColor =
   //   albumData.coverArt.extractedColors.colorRaw.hex;
   console.log(albumData);
-  console.log(albumTracks);
-  console.log(params.id);
+
   return (
     <div>
       <div className="row info_container">
@@ -107,6 +133,32 @@ const AlbumInfo = ({ params }) => {
                     cover={albumData.coverArt.sources[2].url}
                   />
                 ))}
+              </>
+            ) : (
+              <></>
+            )}
+          </ul>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row">
+          <h1 className="titles artist_labels">
+            More by {albumData.artists.items[0].profile.name}
+          </h1>
+          <ul className="toptrack_list">
+            {albumData.moreAlbumsByArtist.items[0].discography.popularReleases
+              .items ? (
+              <>
+                {albumData.moreAlbumsByArtist.items[0].discography.popularReleases.items.map(
+                  (album) => (
+                    <AlbumCard
+                      id={album.releases.items[0].id}
+                      title={album.releases.items[0].name}
+                      cover={album.releases.items[0].coverArt.sources[2].url}
+                      year={album.releases.items[0].date.year}
+                    />
+                  )
+                )}
               </>
             ) : (
               <></>
