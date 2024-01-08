@@ -8,6 +8,7 @@ import AlbumCard from "@/components/AlbumCard";
 const AlbumInfo = ({ params }) => {
   const [albumData, setAlbumData] = useState({
     name: "",
+    type: "",
     coverArt: {
       extractedColors: { colorRaw: { hex: "#14181c" } },
       sources: [{ url: "" }, { url: "" }, { url: "" }],
@@ -66,6 +67,7 @@ const AlbumInfo = ({ params }) => {
   // document.body.style.backgroundColor =
   //   albumData.coverArt.extractedColors.colorRaw.hex;
   console.log(albumData);
+  console.log(albumTracks);
 
   return (
     <div>
@@ -88,7 +90,13 @@ const AlbumInfo = ({ params }) => {
         <div className="description_container">
           <div>
             <h1 className="titles album_title">{albumData.name}</h1>
-            <h2>{"Album • " + albumData.tracks.totalCount + " Tracks"}</h2>
+            <h2>
+              {albumData.type.charAt(0) +
+                albumData.type.slice(1).toLowerCase() +
+                " • " +
+                albumData.tracks.totalCount +
+                " Tracks"}
+            </h2>
             <Link href={`/artist/${albumData.artists.items[0].uri.slice(15)}`}>
               <h2 className="artist_title">
                 {albumData.artists.items[0].profile.name}
@@ -128,7 +136,7 @@ const AlbumInfo = ({ params }) => {
               <>
                 {albumTracks.items.map((track, i) => (
                   <MusicCard
-                    id={track.track.uri.slice(15)}
+                    id={track.track.uri.slice(14)}
                     title={i + 1 + ". " + track.track.name}
                     cover={albumData.coverArt.sources[2].url}
                   />

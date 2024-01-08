@@ -167,6 +167,27 @@ const fetchAlbumTracks = async (id) => {
   return response.data.data.album.tracks;
 };
 
+const fetchSearch = async (query) => {
+  const options = {
+    method: "GET",
+    url: "https://spotify23.p.rapidapi.com/search/",
+    params: {
+      q: query,
+      type: "multi",
+      offset: "0",
+      limit: "12",
+    },
+    headers: {
+      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
+      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+    },
+  };
+
+  const response = await axios.request(options);
+
+  return response.data;
+};
+
 export {
   fetchPlaylistTracks,
   fetchTrack,
@@ -177,4 +198,5 @@ export {
   fetchArtistAlbums,
   fetchAlbumData,
   fetchAlbumTracks,
+  fetchSearch,
 };

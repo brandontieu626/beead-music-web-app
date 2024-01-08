@@ -57,7 +57,11 @@ export const TrackInfo = ({ params }) => {
             width={400}
           />
           <ul className="track_stats_container">
-            <li>Label:{" " + trackCredits.sourceNames[0]}</li>
+            {trackCredits.length != 0 ? (
+              <li>Label:{" " + trackCredits.sourceNames[0]}</li>
+            ) : (
+              <></>
+            )}
             <li>Type:{" " + trackData.type.toUpperCase()}</li>
             <li>Popularity:{" " + trackData.popularity}</li>
           </ul>
@@ -70,20 +74,26 @@ export const TrackInfo = ({ params }) => {
             </Link>
             <h2>{trackData.album.release_date.slice(0, 4)}</h2>
           </div>
-          <div>
-            {trackCredits.roleCredits.map((role) => (
+          {trackCredits.length != 0 ? (
+            <>
               <div>
-                {role.roleTitle + ": "}
-                {role.artists.map((artist, i, artists) =>
-                  i + 1 == artists.length ? (
-                    <span>{artist.name}</span>
-                  ) : (
-                    <span>{artist.name + ", "}</span>
-                  )
-                )}
+                {trackCredits.roleCredits.map((role) => (
+                  <div>
+                    {role.roleTitle + ": "}
+                    {role.artists.map((artist, i, artists) =>
+                      i + 1 == artists.length ? (
+                        <span>{artist.name}</span>
+                      ) : (
+                        <span>{artist.name + ", "}</span>
+                      )
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          ) : (
+            <></>
+          )}
           <div>
             <iframe
               styles="border-radius:12px"
