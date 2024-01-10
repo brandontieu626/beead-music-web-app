@@ -113,9 +113,16 @@ export const TrackInfo = ({ params }) => {
         </div>
       </div>
       <div className="row track_lyrics_container">
-        {trackLyrics.map((line) => (
-          <div>{line.words}</div>
-        ))}
+        {trackLyrics ? (
+          <>
+            {" "}
+            {trackLyrics.map((line) => (
+              <div>{line.words}</div>
+            ))}
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

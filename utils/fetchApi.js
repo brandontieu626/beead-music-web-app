@@ -69,9 +69,13 @@ const fetchTrackLyrics = async (id) => {
     },
   };
 
-  const response = await axios.request(options);
-
-  return response.data.lyrics.lines;
+  try {
+    const response = await axios.request(options);
+    console.log(response.data);
+    return response.data.lyrics.lines;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const fetchArtistOverview = async (id) => {

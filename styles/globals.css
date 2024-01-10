@@ -142,9 +142,9 @@ a {
   row-gap: 25px;
 }
 
-.artist_title {
+/* .artist_title {
   max-width: 166.66px;
-}
+} */
 
 .artist_title:hover {
   color: rgb(255, 64, 59);
