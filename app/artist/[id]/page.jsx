@@ -49,15 +49,19 @@ const ArtistInfo = ({ params }) => {
     }, 500);
   }, []);
   console.log(artist);
-  console.log(artistGenres);
-  console.log(artistAlbums);
+  // console.log(artistGenres);
+  // console.log(artistAlbums);
   return (
     <div>
       <div className="row info_container">
         <div className="image_cover_container">
           <Image
             className="artist_image"
-            src={artist.visuals.avatarImage.sources[0].url}
+            src={
+              artist.visuals.avatarImage
+                ? artist.visuals.avatarImage.sources[0].url
+                : "/images/defaultpfp.jpg"
+            }
             width={400}
             height={500}
           />
@@ -126,7 +130,6 @@ const ArtistInfo = ({ params }) => {
                   <AlbumCard
                     id={album.releases.items[0].id}
                     title={album.releases.items[0].name}
-                    artist={""}
                     cover={album.releases.items[0].coverArt.sources[0].url}
                     year={album.releases.items[0].date.year}
                   />

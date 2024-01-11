@@ -105,6 +105,9 @@ a {
   padding-left: 16px;
   text-align: center;
   position: relative;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
 }
 
 .image_wrap {
@@ -142,9 +145,9 @@ a {
   row-gap: 25px;
 }
 
-/* .artist_title {
+.artist_title {
   max-width: 166.66px;
-} */
+}
 
 .artist_title:hover {
   color: rgb(255, 64, 59);
@@ -154,9 +157,39 @@ a {
 .mc_artist_title {
   margin: 0 0 30px 0;
   max-width: 166.66px;
+  position: relative;
 }
 
 .mc_artist_title:hover {
+  color: rgb(255, 64, 59);
+  transition-duration: 0.15s;
+}
+
+.ac_artist_title {
+  margin: 0 0 70px 0;
+  max-width: 166.66px;
+  position: relative;
+}
+
+.ac_artist_title:hover {
+  color: rgb(255, 64, 59);
+  transition-duration: 0.15s;
+}
+
+.artist_name {
+  margin: 0 0 30px 0;
+  width: 100%;
+  max-width: 166.66px;
+  position: absolute;
+  bottom: 0;
+}
+
+.artist_name:hover {
+  color: rgb(255, 64, 59);
+  transition-duration: 0.15s;
+}
+
+.artist_page_name:hover {
   color: rgb(255, 64, 59);
   transition-duration: 0.15s;
 }
@@ -255,6 +288,12 @@ a {
 
 .artist_labels {
   margin-bottom: 15px;
+}
+
+.search_res_container {
+  background-color: #2b2b2b;
+  padding: 80px 0px;
+  margin-bottom: 150px;
 }
 
 .morebutton {

@@ -98,7 +98,7 @@ const AlbumInfo = ({ params }) => {
                 " Tracks"}
             </h2>
             <Link href={`/artist/${albumData.artists.items[0].uri.slice(15)}`}>
-              <h2 className="artist_title">
+              <h2 className="artist_page_name">
                 {albumData.artists.items[0].profile.name}
               </h2>
             </Link>
