@@ -80,12 +80,18 @@ export const TrackInfo = ({ params }) => {
                 {trackCredits.roleCredits.map((role) => (
                   <div>
                     {role.roleTitle + ": "}
-                    {role.artists.map((artist, i, artists) =>
-                      i + 1 == artists.length ? (
-                        <span>{artist.name}</span>
-                      ) : (
-                        <span>{artist.name + ", "}</span>
-                      )
+                    {role.artists.length != 0 ? (
+                      <>
+                        {role.artists.map((artist, i, artists) =>
+                          i + 1 == artists.length ? (
+                            <span>{artist.name}</span>
+                          ) : (
+                            <span>{artist.name + ", "}</span>
+                          )
+                        )}
+                      </>
+                    ) : (
+                      <>N/A</>
                     )}
                   </div>
                 ))}

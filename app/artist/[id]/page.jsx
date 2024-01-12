@@ -16,7 +16,7 @@ const ArtistInfo = ({ params }) => {
     stats: { worldRank: 0, monthlyListeners: 0 },
   });
 
-  const [artistGenres, setArtistGenres] = useState([]);
+  const [artistGenres, setArtistGenres] = useState(["N/A"]);
 
   const [artistAlbums, setArtistAlbums] = useState([
     { totalCount: 0, items: [] },
@@ -79,12 +79,25 @@ const ArtistInfo = ({ params }) => {
         <div className="description_container">
           <h1 className="titles">{artist.profile.name}</h1>
           {artist.profile.biography.text ? (
-            artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "").length <
-            2000 ? (
-              <p>{artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "")}</p>
+            artist.profile.biography.text
+              .replace(/<\/?a[^>]*>/g, "")
+              .replaceAll("&#39;", "'")
+              .replaceAll("&#34;", '"')
+              .replaceAll("&amp;", "&").length < 2000 ? (
+              <p>
+                {artist.profile.biography.text
+                  .replace(/<\/?a[^>]*>/g, "")
+                  .replaceAll("&#39;", "'")
+                  .replaceAll("&#34;", '"')
+                  .replaceAll("&amp;", "&")}
+              </p>
             ) : isReadMore ? (
               <p>
-                {artist.profile.biography.text.replace(/<\/?a[^>]*>/g, "")}
+                {artist.profile.biography.text
+                  .replace(/<\/?a[^>]*>/g, "")
+                  .replaceAll("&#39;", "'")
+                  .replaceAll("&#34;", '"')
+                  .replaceAll("&amp;", "&")}
                 <span onClick={toggleReadMore} className="morebutton">
                   {" x"}
                 </span>
@@ -93,6 +106,9 @@ const ArtistInfo = ({ params }) => {
               <p>
                 {artist.profile.biography.text
                   .replace(/<\/?a[^>]*>/g, "")
+                  .replaceAll("&#39;", "'")
+                  .replaceAll("&#34;", '"')
+                  .replaceAll("&amp;", "&")
                   .slice(0, 2000)}
                 {"... "}
                 <span onClick={toggleReadMore} className="morebutton">
@@ -101,17 +117,24 @@ const ArtistInfo = ({ params }) => {
               </p>
             )
           ) : (
-            <></>
+            <>We don't know much about them but we're sure they're great!</>
           )}
 
           <div>
             {"GENRE: "}
-            {artistGenres.map((genre, i, artistGenres) =>
-              i + 1 == artistGenres.length ? (
-                <span>{genre[0].toUpperCase() + genre.slice(1)}</span>
-              ) : (
-                <span>{genre[0].toUpperCase() + genre.slice(1) + "/"}</span>
-              )
+            {artistGenres.length != 0 ? (
+              <>
+                {" "}
+                {artistGenres.map((genre, i, artistGenres) =>
+                  i + 1 == artistGenres.length ? (
+                    <span>{genre[0].toUpperCase() + genre.slice(1)}</span>
+                  ) : (
+                    <span>{genre[0].toUpperCase() + genre.slice(1) + "/"}</span>
+                  )
+                )}
+              </>
+            ) : (
+              <>N/A</>
             )}
           </div>
         </div>
@@ -143,7 +166,11 @@ const ArtistInfo = ({ params }) => {
       </div>
       <div className="container">
         <div className="row">
-          <h1 className="titles artist_labels">TOP TRACKS</h1>
+          {artist.discography.topTracks.items.length != 0 ? (
+            <h1 className="titles artist_labels">TOP TRACKS</h1>
+          ) : (
+            <></>
+          )}
           <ul className="toptrack_list">
             {artist.discography.topTracks.items ? (
               <>

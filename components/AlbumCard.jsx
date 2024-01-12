@@ -11,14 +11,25 @@ const AlbumCard = ({ id, title, cover, year, artist, artistId }) => {
           height={166.66}
         />
       </div>
+
       <Link href={`/album/${id}`}>
-        <div>
-          {title.length < 25 ? (
-            <h3 className="ac_artist_title">{title}</h3>
-          ) : (
-            <h3 className="ac_artist_title">{title.slice(0, 25) + "..."}</h3>
-          )}
-        </div>
+        {artist ? (
+          <div>
+            {title.length < 25 ? (
+              <h3 className="ac_artist_title">{title}</h3>
+            ) : (
+              <h3 className="ac_artist_title">{title.slice(0, 25) + "..."}</h3>
+            )}
+          </div>
+        ) : (
+          <div>
+            {title.length < 25 ? (
+              <h3 className="mc_artist_title">{title}</h3>
+            ) : (
+              <h3 className="mc_artist_title">{title.slice(0, 25) + "..."}</h3>
+            )}
+          </div>
+        )}
       </Link>
       {artist ? (
         <Link href={`/artist/${artistId}`}>

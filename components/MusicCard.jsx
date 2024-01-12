@@ -13,6 +13,9 @@ const MusicCard = ({ id, title, artist, artistId, cover }) => {
           />
         </Link>
       </div>
+      <Link href={`/track/${id}`}>
+        <h3 className="mc_artist_title">{title}</h3>
+      </Link>
       {artist ? (
         <Link href={`/artist/${artistId}`}>
           <h3 className="mc_artist_title">{artist}</h3>
@@ -20,9 +23,6 @@ const MusicCard = ({ id, title, artist, artistId, cover }) => {
       ) : (
         <></>
       )}
-      <Link href={`/track/${id}`}>
-        <h3 className="mc_artist_title">{title}</h3>
-      </Link>
     </li>
   );
 };
