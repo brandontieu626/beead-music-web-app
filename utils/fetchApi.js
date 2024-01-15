@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const fetchPlaylistTracks = async (uri, off, lim) => {
   const options = {
     method: "GET",
@@ -192,6 +191,40 @@ const fetchSearch = async (query) => {
   return response.data;
 };
 
+const fetchNewReleases = async () => {
+  const params = new URLSearchParams();
+  params.append("grant_type", "client_credentials");
+  params.append("client_id", process.env.REACT_APP_CLIENT_ID);
+  params.append("client_secret", process.env.REACT_APP_CLIENT_SECRET);
+
+  const resp1 = await axios.post(
+    "https://accounts.spotify.com/api/token",
+    params
+  );
+
+  const accessToken = resp1.data.access_token;
+
+  const url = "https://api.spotify.com/v1/browse/new-releases";
+
+  const response = await axios.get(url, {
+    headers: {
+      Authorization: "Bearer " + accessToken,
+    },
+  });
+
+  return response.data.albums;
+};
+
+const fetchAccessToken = async () => {
+  const url = "https://accounts.spotify.com/api/token";
+
+  const params = new URLSearchParams();
+
+  const response = await axios.post(url, params);
+
+  return response.data.access_token;
+};
+
 export {
   fetchPlaylistTracks,
   fetchTrack,
@@ -203,4 +236,6 @@ export {
   fetchAlbumData,
   fetchAlbumTracks,
   fetchSearch,
+  fetchNewReleases,
+  fetchAccessToken,
 };
