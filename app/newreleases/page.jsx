@@ -11,8 +11,8 @@ const NewReleases = () => {
   useEffect(() => {
     getNewReleases();
   }, []);
-  console.log(process.env.REACT_APP_CLIENT_ID);
-  console.log(process.env.REACT_APP_CLIENT_SECRET);
+  console.log(process.env.CLIENT_ID);
+  console.log(process.env.CLIENT_SECRET);
   return (
     <div className="container">
       <div className="row">
@@ -31,7 +31,7 @@ const NewReleases = () => {
             ))}
           </ul>
         ) : (
-          <>yes</>
+          <></>
         )}
       </div>
     </div>

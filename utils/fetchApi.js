@@ -9,8 +9,8 @@ const fetchPlaylistTracks = async (uri, off, lim) => {
       limit: lim,
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -27,8 +27,8 @@ const fetchTrack = async (id) => {
       ids: id,
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -45,8 +45,8 @@ const fetchTrackCredits = async (id) => {
       id: id,
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -63,8 +63,8 @@ const fetchTrackLyrics = async (id) => {
       id: id,
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -85,8 +85,8 @@ const fetchArtistOverview = async (id) => {
       id: id,
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -103,8 +103,8 @@ const fetchArtistGenre = async (id) => {
       ids: id,
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -123,8 +123,8 @@ const fetchArtistAlbums = async (id) => {
       limit: "100",
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
   const response = await axios.request(options);
@@ -140,8 +140,8 @@ const fetchAlbumData = async (id) => {
       id: id,
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -160,8 +160,8 @@ const fetchAlbumTracks = async (id) => {
       limit: "300",
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -181,8 +181,8 @@ const fetchSearch = async (query) => {
       limit: "12",
     },
     headers: {
-      "X-RapidAPI-Key": "9da0c30f96msh6c9c58d42112a06p1bea7djsn913e5690fa24",
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST,
     },
   };
 
@@ -194,8 +194,8 @@ const fetchSearch = async (query) => {
 const fetchNewReleases = async () => {
   const params = new URLSearchParams();
   params.append("grant_type", "client_credentials");
-  params.append("client_id", process.env.REACT_APP_CLIENT_ID);
-  params.append("client_secret", process.env.REACT_APP_CLIENT_SECRET);
+  params.append("client_id", process.env.NEXT_PUBLIC_CLIENT_ID);
+  params.append("client_secret", process.env.NEXT_PUBLIC_CLIENT_SECRET);
 
   const resp1 = await axios.post(
     "https://accounts.spotify.com/api/token",
@@ -215,16 +215,6 @@ const fetchNewReleases = async () => {
   return response.data.albums;
 };
 
-const fetchAccessToken = async () => {
-  const url = "https://accounts.spotify.com/api/token";
-
-  const params = new URLSearchParams();
-
-  const response = await axios.post(url, params);
-
-  return response.data.access_token;
-};
-
 export {
   fetchPlaylistTracks,
   fetchTrack,
@@ -237,5 +227,4 @@ export {
   fetchAlbumTracks,
   fetchSearch,
   fetchNewReleases,
-  fetchAccessToken,
 };

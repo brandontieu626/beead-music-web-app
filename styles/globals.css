@@ -105,9 +105,6 @@ a {
   padding-left: 16px;
   text-align: center;
   position: relative;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
 }
 
 .image_wrap {
@@ -143,10 +140,6 @@ a {
   display: grid;
   grid-template-columns: repeat(5, calc(100% / 5));
   row-gap: 25px;
-}
-
-.artist_title {
-  max-width: 166.66px;
 }
 
 .artist_title:hover {
