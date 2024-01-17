@@ -144,7 +144,7 @@ const ArtistInfo = ({ params }) => {
           {artistAlbums.totalCount == 0 ? (
             <></>
           ) : (
-            <h1 className="titles artist_labels">ALBUMS</h1>
+            <h1 className="titles labels">ALBUMS</h1>
           )}
           <ul className="music_list">
             {artistAlbums.items ? (
@@ -167,7 +167,7 @@ const ArtistInfo = ({ params }) => {
       <div className="container">
         <div className="row">
           {artist.discography.topTracks.items.length != 0 ? (
-            <h1 className="titles artist_labels">TOP TRACKS</h1>
+            <h1 className="titles labels">TOP TRACKS</h1>
           ) : (
             <></>
           )}

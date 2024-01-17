@@ -191,7 +191,7 @@ const fetchSearch = async (query) => {
   return response.data;
 };
 
-const fetchNewReleases = async () => {
+const fetchNewReleases = async (query) => {
   const params = new URLSearchParams();
   params.append("grant_type", "client_credentials");
   params.append("client_id", process.env.NEXT_PUBLIC_CLIENT_ID);
@@ -204,7 +204,7 @@ const fetchNewReleases = async () => {
 
   const accessToken = resp1.data.access_token;
 
-  const url = "https://api.spotify.com/v1/browse/new-releases";
+  const url = "https://api.spotify.com/v1/browse/new-releases" + query;
 
   const response = await axios.get(url, {
     headers: {

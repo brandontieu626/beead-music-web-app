@@ -68,7 +68,7 @@ const SearchPage = () => {
       </div>
       <div className="container">
         <div className="row">
-          <h1 className="titles artist_labels">Artists</h1>
+          <h1 className="titles labels">Artists</h1>
           <ul className="music_list">
             {searchResults.artists.items ? (
               <>
@@ -92,7 +92,7 @@ const SearchPage = () => {
       </div>
       <div className="container">
         <div className="row">
-          <h1 className="titles artist_labels"> Albums/Singles/EPS</h1>
+          <h1 className="titles labels"> Albums/Singles/EPS</h1>
           <ul className="music_list">
             {searchResults.albums.items ? (
               <>
@@ -115,7 +115,7 @@ const SearchPage = () => {
       </div>
       <div className="container">
         <div className="row">
-          <h1 className="titles artist_labels">Tracks</h1>
+          <h1 className="titles labels">Tracks</h1>
           <ul className="music_list">
             {searchResults.tracks.items ? (
               <>

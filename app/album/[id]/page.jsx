@@ -64,8 +64,6 @@ const AlbumInfo = ({ params }) => {
     getAlbumData();
     getAlbumTracks();
   }, []);
-  // document.body.style.backgroundColor =
-  //   albumData.coverArt.extractedColors.colorRaw.hex;
   console.log(albumData);
   console.log(albumTracks);
 
@@ -130,7 +128,7 @@ const AlbumInfo = ({ params }) => {
       </div>
       <div className="container">
         <div className="row">
-          <h1 className="titles artist_labels">Tracklist</h1>
+          <h1 className="titles labels">Tracklist</h1>
           <ul className="music_list">
             {albumTracks.items ? (
               <>
@@ -150,7 +148,7 @@ const AlbumInfo = ({ params }) => {
       </div>
       <div className="container">
         <div className="row">
-          <h1 className="titles artist_labels">
+          <h1 className="titles labels">
             More by {albumData.artists.items[0].profile.name}
           </h1>
           <ul className="toptrack_list">

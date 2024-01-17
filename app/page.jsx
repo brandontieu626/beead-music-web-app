@@ -22,7 +22,7 @@ export const Home = () => {
   return (
     <div className="container">
       <div className="row">
-        <h1>Popular Tracks in USA</h1>
+        <h1 className="titles labels">Popular Tracks in USA</h1>
         <MusicList props={songs} />
       </div>
     </div>
