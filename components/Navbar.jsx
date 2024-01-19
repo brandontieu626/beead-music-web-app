@@ -11,7 +11,7 @@ const Navbar = () => {
         <nav className="nb_list_container">
           <ul className="nb_list">
             <li>
-              <Link href="/music">MUSIC</Link>
+              <Link href="/news">NEWS</Link>
             </li>
             <li>
               <Link href="/newreleases">NEW RELEASES</Link>

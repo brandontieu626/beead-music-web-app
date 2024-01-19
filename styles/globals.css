@@ -284,6 +284,34 @@ a {
   background-color: #2b2b2b;
 }
 
+.article_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.article {
+  margin-top: 15px;
+}
+
+.article:hover {
+  text-decoration: underline;
+}
+
+.article_title {
+  font-size: 25px;
+}
+
+.article_description {
+  max-width: 800px;
+  margin-bottom: 15px;
+  text-decoration: none !important;
+}
+
+.article_description:hover {
+  text-decoration: none;
+}
+
 .description_container {
   width: 100%;
   max-width: 871px;

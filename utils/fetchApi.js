@@ -215,6 +215,20 @@ const fetchNewReleases = async (query) => {
   return response.data.albums;
 };
 
+const fetchNewsArticles = async () => {
+  const url =
+    "https://newsapi.org/v2/everything?" +
+    "q=music&" +
+    "sortBy=relevancy&" +
+    "pageSize=25&" +
+    "apiKey=" +
+    process.env.NEXT_PUBLIC_NEWS_API_KEY;
+
+  const response = await axios.get(url);
+
+  return response.data.articles;
+};
+
 export {
   fetchPlaylistTracks,
   fetchTrack,
@@ -227,4 +241,5 @@ export {
   fetchAlbumTracks,
   fetchSearch,
   fetchNewReleases,
+  fetchNewsArticles,
 };
