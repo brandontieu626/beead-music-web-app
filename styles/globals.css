@@ -17,7 +17,8 @@
 html,
 body {
   min-height: 100vh;
-  background-color: #14181c;
+  /* background-color: #14181c; */
+  background-color: rgba(29, 36, 42, 255);
 }
 
 ul {
@@ -33,6 +34,11 @@ a {
 .row {
   width: 50%;
   margin: 0 auto;
+}
+
+.nb {
+  background-color: rgba(26, 26, 26, 255);
+  margin-bottom: 25px;
 }
 .nb_container {
   width: 50%;
@@ -55,12 +61,23 @@ a {
   justify-content: space-around;
 }
 
+.nb_search_container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .nb_search {
   border-radius: 75px;
   padding: 6px 10px 6px 10px;
   display: flex;
+  height: 70%;
   background-color: white;
   border: 0;
+}
+
+.nb_link {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .nb_input {
@@ -69,7 +86,7 @@ a {
   color: #14181c;
   width: 100%;
   background-color: transparent;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .nb_search_button {
@@ -293,6 +310,7 @@ a {
 .article {
   margin-top: 15px;
   max-width: 720px;
+  border-bottom: 1px solid white;
 }
 
 .article:hover {
@@ -315,6 +333,10 @@ a {
   max-height: 360px;
   max-width: 720px;
   margin-bottom: 12px;
+}
+
+.article_date {
+  margin-bottom: 10px;
 }
 
 .description_container {

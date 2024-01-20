@@ -12,7 +12,7 @@ const Article = ({ id, title, desc, author, cover, published, link }) => {
         <h1 className="titles article_title">{title}</h1>
         <h3 className="article_description">{desc}</h3>
         <h5>By: {author}</h5>
-        <h5>
+        <h5 className="article_date">
           {publishDate.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
