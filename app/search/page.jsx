@@ -64,7 +64,9 @@ const SearchPage = () => {
   return (
     <div>
       <div className="container search_res_container">
-        <h1>{"Showing results for " + `"${search}"`}</h1>
+        <h1>
+          Showing results for "<span className="search_item">{search}</span>"
+        </h1>
       </div>
       <div className="container">
         <div className="row">

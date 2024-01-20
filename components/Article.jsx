@@ -5,7 +5,10 @@ const Article = ({ id, title, desc, author, cover, published, link }) => {
   return (
     <li className="article">
       <Link href={link}>
-        <Image src={cover} width={720} height={360} />
+        <div className="article_image_wrap">
+          <Image className="cover_art" src={cover} width={720} height={360} />
+        </div>
+
         <h1 className="titles article_title">{title}</h1>
         <h3 className="article_description">{desc}</h3>
         <h5>By: {author}</h5>
