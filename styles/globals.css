@@ -49,6 +49,9 @@ a {
 }
 
 .nb_site_title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   font-size: 28px;
 }
 
@@ -58,7 +61,7 @@ a {
 
 .nb_list {
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .nb_search_container {
@@ -78,6 +81,11 @@ a {
 .nb_link {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.nb_link_text:hover {
+  color: white;
+  transition-duration: 0.15s;
 }
 
 .nb_input {
@@ -119,7 +127,6 @@ a {
 }
 
 .music_card {
-  padding-left: 16px;
   text-align: center;
   position: relative;
 }
@@ -145,17 +152,19 @@ a {
 
 .music_list {
   width: 100%;
-  margin: 0 0 50px -20px;
+  margin: 0 0 50px 0;
   display: grid;
-  grid-template-columns: repeat(6, calc(100% / 6));
+  grid-template-columns: repeat(6, 166.66px);
+  grid-column-gap: 54px;
   row-gap: 20px;
 }
 
 .toptrack_list {
   width: 100%;
-  margin: 0 0 0 -20px;
+  margin: 0 0 0 0;
   display: grid;
-  grid-template-columns: repeat(5, calc(100% / 5));
+  grid-template-columns: repeat(6, 166.66px);
+  grid-column-gap: 54px;
   row-gap: 25px;
 }
 
@@ -209,6 +218,19 @@ a {
   max-width: 166.66px;
   position: absolute;
   bottom: 0;
+}
+
+.mc_artist {
+  width: 100%;
+  max-width: 166.66px;
+  position: absolute;
+  font-size: 16px;
+  bottom: 0;
+}
+
+.mc_artist:hover {
+  color: rgb(255, 64, 59);
+  transition-duration: 0.15s;
 }
 
 .track_image {
@@ -266,6 +288,7 @@ a {
 }
 
 .image_cover_container {
+  padding-left: 8px;
   width: 100%;
   max-width: 400px;
   height: 100%;
@@ -275,6 +298,7 @@ a {
   width: 100%;
   max-width: 500px;
   height: 100%;
+  padding-left: 8px;
 }
 
 .artist_stats_container {
@@ -324,7 +348,6 @@ a {
 .article_description {
   max-width: 800px;
   margin-bottom: 15px;
-  text-decoration: none !important;
 }
 
 .article_image_wrap {
@@ -356,6 +379,21 @@ a {
   color: white;
 }
 
+.beead_link {
+  display: flex;
+  justify-content: center;
+}
+
+.beead_text {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.beead_text_footer {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 16px;
+}
 .search_res_container {
   background-color: #2b2b2b;
   padding: 80px 0px;
