@@ -9,6 +9,7 @@ const AlbumCard = ({ id, title, cover, year, artist, artistId }) => {
           src={cover}
           width={166.66}
           height={166.66}
+          alt={"Album Cover"}
         />
       </div>
 

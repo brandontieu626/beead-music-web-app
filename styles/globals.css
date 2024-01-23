@@ -163,8 +163,8 @@ a {
   width: 100%;
   margin: 0 0 0 0;
   display: grid;
-  grid-template-columns: repeat(6, 166.66px);
-  grid-column-gap: 54px;
+  grid-template-columns: repeat(5, 166.66px);
+  grid-column-gap: 108px;
   row-gap: 25px;
 }
 

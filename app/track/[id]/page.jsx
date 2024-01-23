@@ -40,8 +40,10 @@ export const TrackInfo = ({ params }) => {
     getTrackInfo();
     setTimeout(() => {
       getTrackCredits();
+    }, 1200);
+    setTimeout(() => {
       getTrackLyrics();
-    }, 500);
+    }, 1200);
   }, []);
   console.log(trackData);
   console.log(trackCredits);
@@ -50,12 +52,20 @@ export const TrackInfo = ({ params }) => {
     <div>
       <div className="row info_container">
         <div className="image_cover_container">
-          <Image
-            className="track_image"
-            src={trackData.album.images[0].url}
-            height={400}
-            width={400}
-          />
+          {trackData.album.images[0].url != "" ? (
+            <>
+              <Image
+                className="track_image"
+                src={trackData.album.images[0].url}
+                height={400}
+                width={400}
+                alt="Track Cover Art"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+
           <ul className="track_stats_container">
             {trackCredits.length != 0 ? (
               <li>Label:{" " + trackCredits.sourceNames[0]}</li>
@@ -111,7 +121,7 @@ export const TrackInfo = ({ params }) => {
               width="100%"
               height="164"
               frameBorder="0"
-              allowfullscreen=""
+              allowFullScreen=""
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             ></iframe>

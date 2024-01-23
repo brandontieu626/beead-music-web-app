@@ -26,6 +26,7 @@ export const Home = () => {
         <ul className="toptrack_list">
           {songs.map((song) => (
             <MusicCard
+              key={song.track.id}
               id={song.track.id}
               title={song.track.name}
               artist={song.track.artists[0].name}

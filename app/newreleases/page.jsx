@@ -29,10 +29,11 @@ const NewReleases = () => {
             id="filter_country"
             className="select_country"
             onChange={(event) => handleSubmit(event.target.value)}
+            defaultValue="US"
           >
-            <option value="DEFAULT" disabled selected>
+            {/* <option value="DEFAULT" disabled selected>
               Country
-            </option>{" "}
+            </option>{ */}
             <option value="US">USA</option>
             <option value="CA">Canada</option>
             <option value="MX">Mexico</option>
@@ -46,6 +47,7 @@ const NewReleases = () => {
           <ul className="music_list">
             {newReleases.items.map((music) => (
               <AlbumCard
+                key={music.id}
                 id={music.id}
                 title={music.name}
                 cover={music.images[0].url}

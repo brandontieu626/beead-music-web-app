@@ -76,6 +76,7 @@ const AlbumInfo = ({ params }) => {
             src={albumData.coverArt.sources[2].url}
             height={500}
             width={500}
+            alt="Album Cover art"
           />
           <ul className="artist_stats_container">
             <li>Label: {albumData.label}</li>
@@ -119,7 +120,7 @@ const AlbumInfo = ({ params }) => {
               width="100%"
               height="352"
               frameBorder="0"
-              allowfullscreen=""
+              allowFullScreen=""
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             ></iframe>
@@ -134,6 +135,7 @@ const AlbumInfo = ({ params }) => {
               <>
                 {albumTracks.items.map((track, i) => (
                   <MusicCard
+                    key={track.track.uri.slice(14)}
                     id={track.track.uri.slice(14)}
                     title={i + 1 + ". " + track.track.name}
                     cover={albumData.coverArt.sources[2].url}
@@ -158,6 +160,7 @@ const AlbumInfo = ({ params }) => {
                 {albumData.moreAlbumsByArtist.items[0].discography.popularReleases.items.map(
                   (album) => (
                     <AlbumCard
+                      key={album.releases.items[0].id}
                       id={album.releases.items[0].id}
                       title={album.releases.items[0].name}
                       cover={album.releases.items[0].coverArt.sources[2].url}

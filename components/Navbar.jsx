@@ -13,6 +13,7 @@ const Navbar = () => {
               src="/images/beeadlogo.png"
               height={40}
               width={40}
+              alt={"Beaad Logo"}
             />
             <span className="beead_text">Beead</span>
           </Link>

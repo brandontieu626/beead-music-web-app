@@ -9,6 +9,7 @@ const Footer = () => {
             src="/images/beeadlogo.png"
             height={22.5}
             width={22.5}
+            alt={"Beaad Logo"}
           />
           <span className="beead_text_footer">Beead</span>
         </div>

@@ -10,6 +10,7 @@ const MusicCard = ({ id, title, artist, artistId, cover }) => {
             src={cover}
             width={166.66}
             height={166.66}
+            alt={"Track cover art"}
           />
         </Link>
       </div>
