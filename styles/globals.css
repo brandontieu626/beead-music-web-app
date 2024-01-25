@@ -163,10 +163,12 @@ a {
   width: 100%;
   margin: 0 0 0 0;
   display: grid;
-  grid-template-columns: repeat(5, 166.66px);
-  grid-column-gap: 108px;
+  grid-template-columns: repeat(5, calc(65% / 5));
+  grid-column-gap: calc(35% / 4);
   row-gap: 25px;
 }
+
+/* 108px; */
 
 .artist_title:hover {
   color: rgb(255, 64, 59);
@@ -403,4 +405,27 @@ a {
 .morebutton {
   color: rgb(180, 221, 255);
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .row {
+    width: 80%;
+  }
+  .toptrack_list {
+    grid-template-columns: repeat(3, calc(80% / 3));
+    grid-column-gap: calc(20% / 3);
+  }
+
+  .mc_artist_title {
+    font-size: 6px;
+  }
+
+  .mc_artist {
+    font-size: 6px;
+    margin-bottom: -20px;
+  }
+
+  .image_wrap {
+    margin-bottom: 0px;
+  }
 }
