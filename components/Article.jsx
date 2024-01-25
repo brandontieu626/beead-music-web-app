@@ -1,12 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-const Article = ({ id, title, desc, author, cover, published, link }) => {
+const Article = ({ title, desc, author, cover, published, link }) => {
   const publishDate = new Date(published);
   return (
     <li className="article">
       <Link href={link}>
         <div className="article_image_wrap">
-          <Image className="cover_art" src={cover} width={720} height={360} />
+          {cover ? (
+            <>
+              <Image
+                className="cover_art"
+                src={cover}
+                width={720}
+                height={360}
+                alt="Article Image"
+              />
+            </>
+          ) : (
+            <></>
+          )}
         </div>
 
         <h1 className="titles article_title">{title}</h1>

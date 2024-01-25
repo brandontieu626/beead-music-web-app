@@ -5,13 +5,19 @@ const MusicCard = ({ id, title, artist, artistId, cover }) => {
     <li className="music_card">
       <div className="image_wrap">
         <Link href={`/track/${id}`}>
-          <Image
-            className="cover_art"
-            src={cover}
-            width={166.66}
-            height={166.66}
-            alt={"Track cover art"}
-          />
+          {cover ? (
+            <>
+              <Image
+                className="cover_art"
+                src={cover}
+                width={166.66}
+                height={166.66}
+                alt={"Track cover art"}
+              />
+            </>
+          ) : (
+            <></>
+          )}
         </Link>
       </div>
       <Link href={`/track/${id}`}>

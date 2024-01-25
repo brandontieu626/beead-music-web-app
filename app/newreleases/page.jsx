@@ -31,9 +31,6 @@ const NewReleases = () => {
             onChange={(event) => handleSubmit(event.target.value)}
             defaultValue="US"
           >
-            {/* <option value="DEFAULT" disabled selected>
-              Country
-            </option>{ */}
             <option value="US">USA</option>
             <option value="CA">Canada</option>
             <option value="MX">Mexico</option>

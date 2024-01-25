@@ -71,13 +71,20 @@ const AlbumInfo = ({ params }) => {
     <div>
       <div className="row info_container">
         <div className="album_image_cover_container">
-          <Image
-            className="album_image"
-            src={albumData.coverArt.sources[2].url}
-            height={500}
-            width={500}
-            alt="Album Cover art"
-          />
+          {albumData.coverArt.sources[2].url != "" ? (
+            <>
+              <Image
+                className="album_image"
+                src={albumData.coverArt.sources[2].url}
+                height={500}
+                width={500}
+                alt="Album Cover art"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+
           <ul className="artist_stats_container">
             <li>Label: {albumData.label}</li>
             <li>

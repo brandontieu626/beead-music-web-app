@@ -87,16 +87,16 @@ export const TrackInfo = ({ params }) => {
           {trackCredits.length != 0 ? (
             <>
               <div>
-                {trackCredits.roleCredits.map((role) => (
-                  <div>
+                {trackCredits.roleCredits.map((role, i) => (
+                  <div key={i}>
                     {role.roleTitle + ": "}
                     {role.artists.length != 0 ? (
                       <>
                         {role.artists.map((artist, i, artists) =>
                           i + 1 == artists.length ? (
-                            <span>{artist.name}</span>
+                            <span key={i}>{artist.name}</span>
                           ) : (
-                            <span>{artist.name + ", "}</span>
+                            <span key={i}>{artist.name + ", "}</span>
                           )
                         )}
                       </>
@@ -132,8 +132,8 @@ export const TrackInfo = ({ params }) => {
         {trackLyrics ? (
           <>
             {" "}
-            {trackLyrics.map((line) => (
-              <div>{line.words}</div>
+            {trackLyrics.map((line, i) => (
+              <div key={i}>{line.words}</div>
             ))}
           </>
         ) : (

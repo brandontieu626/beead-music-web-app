@@ -20,7 +20,7 @@ const News = () => {
           <ul className="article_list">
             {news.map((article, i) => (
               <Article
-                id={i}
+                key={i}
                 title={article.title}
                 desc={article.description}
                 author={article.author}

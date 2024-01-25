@@ -59,7 +59,6 @@ const ArtistInfo = ({ params }) => {
         <div className="image_cover_container">
           {artist.visuals.avatarImage.sources[0].url != "" ? (
             <>
-              {" "}
               <Image
                 className="artist_image"
                 src={
@@ -75,17 +74,6 @@ const ArtistInfo = ({ params }) => {
           ) : (
             <></>
           )}
-          {/* <Image
-            className="artist_image"
-            src={
-              artist.visuals.avatarImage
-                ? artist.visuals.avatarImage.sources[0].url
-                : "/images/defaultpfp.jpg"
-            }
-            width={400}
-            height={500}
-            alt="Artist Image"
-          /> */}
           <ul className="artist_stats_container">
             <li>{"Rank: " + artist.stats.worldRank}</li>
             <li>
@@ -145,12 +133,15 @@ const ArtistInfo = ({ params }) => {
             {"GENRE: "}
             {artistGenres.length != 0 ? (
               <>
-                {" "}
                 {artistGenres.map((genre, i, artistGenres) =>
                   i + 1 == artistGenres.length ? (
-                    <span>{genre[0].toUpperCase() + genre.slice(1)}</span>
+                    <span key={i}>
+                      {genre[0].toUpperCase() + genre.slice(1)}
+                    </span>
                   ) : (
-                    <span>{genre[0].toUpperCase() + genre.slice(1) + "/"}</span>
+                    <span key={i}>
+                      {genre[0].toUpperCase() + genre.slice(1) + "/"}
+                    </span>
                   )
                 )}
               </>
@@ -172,6 +163,7 @@ const ArtistInfo = ({ params }) => {
               <>
                 {artistAlbums.items.map((album) => (
                   <AlbumCard
+                    key={album.releases.items[0].id}
                     id={album.releases.items[0].id}
                     title={album.releases.items[0].name}
                     cover={album.releases.items[0].coverArt.sources[0].url}
@@ -197,6 +189,7 @@ const ArtistInfo = ({ params }) => {
               <>
                 {artist.discography.topTracks.items.map((track) => (
                   <MusicCard
+                    key={track.track.id}
                     id={track.track.id}
                     title={track.track.name}
                     artist={""}
