@@ -99,9 +99,12 @@ const AlbumInfo = ({ params }) => {
             <h2>
               {albumData.type.charAt(0) +
                 albumData.type.slice(1).toLowerCase() +
-                " • " +
-                albumData.tracks.totalCount +
-                " Tracks"}
+                " • "}
+              {albumData.tracks.totalCount != 1 ? (
+                <>{albumData.tracks.totalCount + " Tracks"}</>
+              ) : (
+                <>{albumData.tracks.totalCount + " Track"}</>
+              )}
             </h2>
             <Link href={`/artist/${albumData.artists.items[0].uri.slice(15)}`}>
               <h2 className="artist_page_name">
