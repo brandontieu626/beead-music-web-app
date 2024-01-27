@@ -14,6 +14,10 @@ export const RootLayout = ({ children }) => {
     <html>
       <head>
         <link rel="icon" href="/icon.ico" sizes="100x100" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1"
+        ></meta>
       </head>
       <body>
         <main>
