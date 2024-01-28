@@ -92,13 +92,15 @@ const ArtistInfo = ({ params }) => {
               .replace(/<\/?a[^>]*>/g, "")
               .replaceAll("&#39;", "'")
               .replaceAll("&#34;", '"')
-              .replaceAll("&amp;", "&").length < 2000 ? (
+              .replaceAll("&amp;", "&")
+              .replaceAll("&quot;", '"').length < 2000 ? (
               <p>
                 {artist.profile.biography.text
                   .replace(/<\/?a[^>]*>/g, "")
                   .replaceAll("&#39;", "'")
                   .replaceAll("&#34;", '"')
-                  .replaceAll("&amp;", "&")}
+                  .replaceAll("&amp;", "&")
+                  .replaceAll("&quot;", '"')}
               </p>
             ) : isReadMore ? (
               <p>
@@ -106,7 +108,8 @@ const ArtistInfo = ({ params }) => {
                   .replace(/<\/?a[^>]*>/g, "")
                   .replaceAll("&#39;", "'")
                   .replaceAll("&#34;", '"')
-                  .replaceAll("&amp;", "&")}
+                  .replaceAll("&amp;", "&")
+                  .replaceAll("&quot;", '"')}
                 <span onClick={toggleReadMore} className="morebutton">
                   {" x"}
                 </span>
@@ -118,6 +121,7 @@ const ArtistInfo = ({ params }) => {
                   .replaceAll("&#39;", "'")
                   .replaceAll("&#34;", '"')
                   .replaceAll("&amp;", "&")
+                  .replaceAll("&quot;", '"')
                   .slice(0, 2000)}
                 {"... "}
                 <span onClick={toggleReadMore} className="morebutton">

@@ -3,18 +3,37 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoIosSearch } from "react-icons/io";
 import { SlMenu } from "react-icons/sl";
+import { FaTimes } from "react-icons/fa";
+import { useState } from "react";
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   function openMenu() {
     document.body.classList += " menu--open";
+    setMenuOpen(!menuOpen);
+  }
+
+  function closeMenu() {
+    document.body.classList -= " menu--open";
+    setMenuOpen(!menuOpen);
   }
 
   return (
     <div className="nb">
       <div className="nb_container">
         <div className="nb_site_title">
-          <button className="nb_menu_button" onClick={openMenu}>
-            <SlMenu color="white" fill="white" size={20} />
-          </button>
+          {menuOpen == false ? (
+            <>
+              <button className="nb_menu_button" onClick={openMenu}>
+                <SlMenu color="white" fill="white" size={20} />
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="nb_menu_button" onClick={closeMenu}>
+                <FaTimes color="white" fill="white" size={20} />
+              </button>
+            </>
+          )}
           <Link className="beead_link" href="/">
             <Image
               className="beead_logo"
@@ -56,13 +75,13 @@ const Navbar = () => {
       </div>
       <div className="nb_menu">
         <ul className="menu_list">
-          <li>
-            <Link href="/news">
+          <li className="menu_link">
+            <Link href="/news" onClick={closeMenu}>
               <span className="nb_link_text">NEWS</span>
             </Link>
           </li>
-          <li>
-            <Link href="/newreleases">
+          <li className="menu_link">
+            <Link href="/newreleases" onClick={closeMenu}>
               <span className="nb_link_text">NEW RELEASES</span>
             </Link>
           </li>

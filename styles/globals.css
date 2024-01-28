@@ -61,6 +61,8 @@ a {
   display: none;
   background-color: transparent;
   border: 0;
+  padding-left: 15px;
+  padding-right: 25px;
 }
 
 .nb_menu {
@@ -91,7 +93,12 @@ a {
 .menu_list {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  justify-content: space-between;
+  padding-left: 70px;
+}
+
+.menu_link {
+  margin-top: 15px;
 }
 
 .nb_list {
@@ -448,16 +455,21 @@ a {
   .toptrack_list {
     grid-template-columns: repeat(4, calc(80% / 4));
     grid-column-gap: calc(20% / 3);
-    row-gap: 40px;
   }
 
-  .mc_artist {
-    margin-bottom: -20px;
+  .music_list {
+    grid-template-columns: repeat(4, calc(80% / 4));
+    grid-column-gap: calc(20% / 3);
   }
 }
 
 @media (max-width: 1280px) {
   .toptrack_list {
+    grid-template-columns: repeat(3, calc(90% / 3));
+    grid-column-gap: calc(10% / 2);
+  }
+
+  .music_list {
     grid-template-columns: repeat(3, calc(90% / 3));
     grid-column-gap: calc(10% / 2);
   }
@@ -469,15 +481,8 @@ a {
   .mc_artist {
     font-size: 12px;
   }
-
-  .toptrack_list {
-    row-gap: 60px;
-  }
-}
-
-@media (max-width: 900px) {
-  .toptrack_list {
-    row-gap: 70px;
+  .mc_year {
+    margin-bottom: -2px;
   }
 }
 
@@ -485,9 +490,14 @@ a {
   .nb_menu_button {
     display: block;
   }
+
+  .nb_menu_button :hover {
+    cursor: pointer;
+  }
   .nb_link {
     display: none;
   }
+
   input {
     font-size: 8px;
   }
@@ -500,11 +510,42 @@ a {
     grid-column-gap: calc(10% / 1);
   }
 
+  .music_list {
+    grid-template-columns: repeat(2, calc(90% / 2));
+    grid-column-gap: calc(10% / 1);
+  }
+
   .mc_artist_title {
-    font-size: 6px;
+    font-size: 14px;
+    margin-bottom: 50px;
   }
 
   .mc_artist {
-    font-size: 6px;
+    font-size: 14px;
+  }
+
+  .mc_year {
+    font-size: 14px;
+  }
+
+  .image_cover_container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+  }
+
+  .description_container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    max-width: 400px;
+  }
+
+  .track_lyrics_container {
+    align-items: normal;
+  }
+
+  .info_container {
+    display: block;
   }
 }
