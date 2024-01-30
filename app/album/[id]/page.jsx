@@ -93,7 +93,7 @@ const AlbumInfo = ({ params }) => {
             </li>
           </ul>
         </div>
-        <div className="description_container">
+        <div className="album_description_container">
           <div>
             <h1 className="titles album_title">{albumData.name}</h1>
             <h2>

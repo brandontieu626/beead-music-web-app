@@ -9,23 +9,22 @@ const NewReleases = () => {
     setNewReleases(data);
   }
 
-  async function handleSubmit(country) {
-    console.log(country);
-    const query = "?country=" + country + "&limit=24";
+  // async function handleSubmit(country) {
+  //   console.log(country);
+  //   const query = "?country=" + country + "&limit=24";
 
-    const data = await getNewReleases(query);
-  }
+  //   const data = await getNewReleases(query);
+  // }
   useEffect(() => {
     getNewReleases("?country=US&limit=24");
   }, []);
-  console.log(process.env.CLIENT_ID);
-  console.log(process.env.CLIENT_SECRET);
+  console.log(newReleases);
   return (
     <div className="container">
       <div className="row">
         <h1 className="titles labels select_country_container">
-          New Releases{" "}
-          <select
+          New Releases
+          {/* <select
             id="filter_country"
             className="select_country"
             onChange={(event) => handleSubmit(event.target.value)}
@@ -38,7 +37,7 @@ const NewReleases = () => {
             <option value="GB">UK</option>
             <option value="JP">Japan</option>
             <option value="KR">Korea</option>
-          </select>
+          </select> */}
         </h1>
         {newReleases.items ? (
           <ul className="music_list">
