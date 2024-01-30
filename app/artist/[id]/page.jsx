@@ -57,7 +57,29 @@ const ArtistInfo = ({ params }) => {
     <div>
       <div className="row info_container">
         <div className="image_cover_container">
-          {artist.visuals.avatarImage.sources[0].url != "" ? (
+          <Image
+            className="artist_image"
+            src={
+              artist.visuals.avatarImage
+                ? artist.visuals.avatarImage.sources[0].url
+                : "/images/defaultpfp.jpg"
+            }
+            width={400}
+            height={500}
+            alt="Artist Image"
+          />
+          {/* {artist.visuals.avatarImage? <>  <Image
+                className="artist_image"
+                src={
+                  artist.visuals.avatarImage
+                    ? artist.visuals.avatarImage.sources[0].url
+                    : "/images/defaultpfp.jpg"
+                }
+                width={400}
+                height={500}
+                alt="Artist Image"
+              /></>:<></>} */}
+          {/* {artist.visuals.avatarImage.sources[0].url != "" ? (
             <>
               <Image
                 className="artist_image"
@@ -73,7 +95,7 @@ const ArtistInfo = ({ params }) => {
             </>
           ) : (
             <></>
-          )}
+          )} */}
           <ul className="artist_stats_container">
             <li>{"Rank: " + artist.stats.worldRank}</li>
             <li>
