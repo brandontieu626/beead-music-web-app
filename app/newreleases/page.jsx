@@ -9,12 +9,6 @@ const NewReleases = () => {
     setNewReleases(data);
   }
 
-  // async function handleSubmit(country) {
-  //   console.log(country);
-  //   const query = "?country=" + country + "&limit=24";
-
-  //   const data = await getNewReleases(query);
-  // }
   useEffect(() => {
     getNewReleases("?country=US&limit=24");
   }, []);
@@ -22,23 +16,7 @@ const NewReleases = () => {
   return (
     <div className="container">
       <div className="row">
-        <h1 className="titles labels select_country_container">
-          New Releases
-          {/* <select
-            id="filter_country"
-            className="select_country"
-            onChange={(event) => handleSubmit(event.target.value)}
-            defaultValue="US"
-          >
-            <option value="US">USA</option>
-            <option value="CA">Canada</option>
-            <option value="MX">Mexico</option>
-            <option value="BR">Brazil</option>
-            <option value="GB">UK</option>
-            <option value="JP">Japan</option>
-            <option value="KR">Korea</option>
-          </select> */}
-        </h1>
+        <h1 className="titles labels select_country_container">New Releases</h1>
         {newReleases.items ? (
           <ul className="music_list">
             {newReleases.items.map((music) => (
