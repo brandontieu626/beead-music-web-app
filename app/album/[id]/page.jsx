@@ -101,7 +101,6 @@ const AlbumInfo = ({ params }) => {
             <h2>
               {albumData.tracks.totalCount != 0 ? (
                 <>
-                  {" "}
                   {albumData.type.charAt(0) +
                     albumData.type.slice(1).toLowerCase() +
                     " • "}

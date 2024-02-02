@@ -51,12 +51,16 @@ const SearchPage = () => {
       ],
     },
   });
-  async function getSearchResults() {
-    const data = await fetchSearch(search);
-    setSearchResults(data);
-  }
+  // async function getSearchResults() {
+  //   const data = await fetchSearch(search);
+  //   setSearchResults(data);
+  // }
 
   useEffect(() => {
+    async function getSearchResults() {
+      const data = await fetchSearch(search);
+      setSearchResults(data);
+    }
     setTimeout(() => {
       getSearchResults();
     }, 500);
@@ -77,6 +81,7 @@ const SearchPage = () => {
               <>
                 {searchResults.artists.items.map((artist) => (
                   <ArtistCard
+                    key={artist.data.uri.slice(15)}
                     id={artist.data.uri.slice(15)}
                     name={artist.data.profile.name}
                     avatar={
@@ -101,6 +106,7 @@ const SearchPage = () => {
               <>
                 {searchResults.albums.items.map((album) => (
                   <AlbumCard
+                    key={album.data.uri.slice(14)}
                     id={album.data.uri.slice(14)}
                     title={album.data.name}
                     artist={album.data.artists.items[0].profile.name}
@@ -124,6 +130,7 @@ const SearchPage = () => {
               <>
                 {searchResults.tracks.items.map((track) => (
                   <MusicCard
+                    key={track.data.id}
                     id={track.data.id}
                     title={track.data.name}
                     artist={track.data.artists.items[0].profile.name}
