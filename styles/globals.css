@@ -23,7 +23,7 @@ body {
   background-color: rgba(29, 36, 42, 255);
 }
 
-/*Generic Containers*/
+/*Generic Styling*/
 ul {
   display: flex;
   list-style-type: none;

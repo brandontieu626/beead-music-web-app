@@ -37,17 +37,18 @@ export const TrackInfo = ({ params }) => {
     setTrackLyrics(data);
   }
   useEffect(() => {
-    getTrackInfo();
+    setTimeout(() => {
+      getTrackInfo();
+    }, 500);
+
     setTimeout(() => {
       getTrackCredits();
-    }, 1200);
+    }, 1500);
     setTimeout(() => {
       getTrackLyrics();
-    }, 1200);
+    }, 1500);
   }, []);
-  console.log(trackData);
-  console.log(trackCredits);
-  console.log(trackLyrics);
+
   return (
     <div>
       <div className="row info_container">
@@ -131,7 +132,6 @@ export const TrackInfo = ({ params }) => {
       <div className="row track_lyrics_container">
         {trackLyrics ? (
           <>
-            {" "}
             {trackLyrics.map((line, i) => (
               <div key={i}>{line.words}</div>
             ))}

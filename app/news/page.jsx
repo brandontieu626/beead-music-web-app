@@ -10,9 +10,10 @@ const News = () => {
   }
 
   useEffect(() => {
-    getNews();
+    setTimeout(() => {
+      getNews();
+    }, 500);
   }, []);
-  console.log(news);
   return (
     <div className="container">
       <div className="row">

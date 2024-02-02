@@ -42,7 +42,9 @@ const ArtistInfo = ({ params }) => {
     setIsReadMore(!isReadMore);
   };
   useEffect(() => {
-    getArtistInfo();
+    setTimeout(() => {
+      getArtistInfo();
+    }, 500);
     setTimeout(() => {
       getArtistGenre();
     }, 1200);
@@ -50,24 +52,29 @@ const ArtistInfo = ({ params }) => {
       getArtistAlbums();
     }, 1200);
   }, []);
-  console.log(artist);
-  // console.log(artistGenres);
-  // console.log(artistAlbums);
+
   return (
     <div>
       <div className="row info_container">
         <div className="image_cover_container">
-          <Image
-            className="artist_image"
-            src={
-              artist.visuals.avatarImage
-                ? artist.visuals.avatarImage.sources[0].url
-                : "/images/defaultpfp.jpg"
-            }
-            width={400}
-            height={500}
-            alt="Artist Image"
-          />
+          {artist.visuals.avatarImage.sources[0].url != "" ? (
+            <>
+              <Image
+                className="artist_image"
+                src={
+                  artist.visuals.avatarImage
+                    ? artist.visuals.avatarImage.sources[0].url
+                    : "/images/defaultpfp.jpg"
+                }
+                width={400}
+                height={500}
+                alt="Artist Image"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+
           <ul className="artist_stats_container">
             <li>{"Rank: " + artist.stats.worldRank}</li>
             <li>
@@ -87,14 +94,16 @@ const ArtistInfo = ({ params }) => {
               .replaceAll("&#39;", "'")
               .replaceAll("&#34;", '"')
               .replaceAll("&amp;", "&")
-              .replaceAll("&quot;", '"').length < 2000 ? (
+              .replaceAll("&quot;", '"')
+              .replaceAll("&#43;", "+").length < 2000 ? (
               <p>
                 {artist.profile.biography.text
                   .replace(/<\/?a[^>]*>/g, "")
                   .replaceAll("&#39;", "'")
                   .replaceAll("&#34;", '"')
                   .replaceAll("&amp;", "&")
-                  .replaceAll("&quot;", '"')}
+                  .replaceAll("&quot;", '"')
+                  .replaceAll("&#43;", "+")}
               </p>
             ) : isReadMore ? (
               <p>
@@ -103,7 +112,8 @@ const ArtistInfo = ({ params }) => {
                   .replaceAll("&#39;", "'")
                   .replaceAll("&#34;", '"')
                   .replaceAll("&amp;", "&")
-                  .replaceAll("&quot;", '"')}
+                  .replaceAll("&quot;", '"')
+                  .replaceAll("&#43;", "+")}
                 <span onClick={toggleReadMore} className="morebutton">
                   {" x"}
                 </span>
@@ -116,6 +126,7 @@ const ArtistInfo = ({ params }) => {
                   .replaceAll("&#34;", '"')
                   .replaceAll("&amp;", "&")
                   .replaceAll("&quot;", '"')
+                  .replaceAll("&#43;", "+")
                   .slice(0, 2000)}
                 {"... "}
                 <span onClick={toggleReadMore} className="morebutton">
@@ -151,10 +162,10 @@ const ArtistInfo = ({ params }) => {
       </div>
       <div className="container">
         <div className="row">
-          {artistAlbums.totalCount == 0 ? (
-            <></>
-          ) : (
+          {artistAlbums.totalCount != 0 ? (
             <h1 className="titles labels">ALBUMS</h1>
+          ) : (
+            <></>
           )}
           <ul className="music_list">
             {artistAlbums.items ? (

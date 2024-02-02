@@ -57,10 +57,11 @@ const SearchPage = () => {
   }
 
   useEffect(() => {
-    getSearchResults();
+    setTimeout(() => {
+      getSearchResults();
+    }, 500);
   }, []);
 
-  console.log(searchResults.artists);
   return (
     <div>
       <div className="container search_res_container">

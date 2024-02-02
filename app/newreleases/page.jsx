@@ -10,9 +10,11 @@ const NewReleases = () => {
   }
 
   useEffect(() => {
-    getNewReleases("?country=US&limit=24");
+    setTimeout(() => {
+      getNewReleases("?limit=24");
+    }, 500);
   }, []);
-  console.log(newReleases);
+
   return (
     <div className="container">
       <div className="row">

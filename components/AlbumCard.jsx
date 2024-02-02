@@ -4,19 +4,21 @@ const AlbumCard = ({ id, title, cover, year, artist, artistId }) => {
   return (
     <li className="music_card">
       <div className="image_wrap">
-        {cover ? (
-          <>
-            <Image
-              className="cover_art"
-              src={cover}
-              width={166.66}
-              height={166.66}
-              alt={"Album Cover"}
-            />
-          </>
-        ) : (
-          <></>
-        )}
+        <Link href={`/album/${id}`}>
+          {cover ? (
+            <>
+              <Image
+                className="cover_art"
+                src={cover}
+                width={166.66}
+                height={166.66}
+                alt={"Album Cover"}
+              />
+            </>
+          ) : (
+            <></>
+          )}
+        </Link>
       </div>
 
       <Link href={`/album/${id}`}>

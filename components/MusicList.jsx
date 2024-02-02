@@ -16,7 +16,7 @@ const MusicList = ({ props }) => {
           ))}
         </>
       ) : (
-        <span></span>
+        <></>
       )}
     </ul>
   );

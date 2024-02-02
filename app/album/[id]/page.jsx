@@ -15,7 +15,7 @@ const AlbumInfo = ({ params }) => {
     },
     artists: { items: [{ uri: "", profile: { name: "" } }] },
     date: { isoString: "" },
-    tracks: { totalCount: "" },
+    tracks: { totalCount: 0 },
     label: "",
     copyright: { items: [{ type: "", text: "" }] },
     moreAlbumsByArtist: {
@@ -61,11 +61,13 @@ const AlbumInfo = ({ params }) => {
     setAlbumTracks(data);
   }
   useEffect(() => {
-    getAlbumData();
-    getAlbumTracks();
+    setTimeout(() => {
+      getAlbumData();
+    }, 500);
+    setTimeout(() => {
+      getAlbumTracks();
+    }, 500);
   }, []);
-  console.log(albumData);
-  console.log(albumTracks);
 
   return (
     <div>
@@ -97,13 +99,20 @@ const AlbumInfo = ({ params }) => {
           <div>
             <h1 className="titles album_title">{albumData.name}</h1>
             <h2>
-              {albumData.type.charAt(0) +
-                albumData.type.slice(1).toLowerCase() +
-                " • "}
-              {albumData.tracks.totalCount != 1 ? (
-                <>{albumData.tracks.totalCount + " Tracks"}</>
+              {albumData.tracks.totalCount != 0 ? (
+                <>
+                  {" "}
+                  {albumData.type.charAt(0) +
+                    albumData.type.slice(1).toLowerCase() +
+                    " • "}
+                  {albumData.tracks.totalCount != 1 ? (
+                    <>{albumData.tracks.totalCount + " Tracks"}</>
+                  ) : (
+                    <>{albumData.tracks.totalCount + " Track"}</>
+                  )}
+                </>
               ) : (
-                <>{albumData.tracks.totalCount + " Track"}</>
+                <></>
               )}
             </h2>
             <Link href={`/artist/${albumData.artists.items[0].uri.slice(15)}`}>
@@ -112,11 +121,17 @@ const AlbumInfo = ({ params }) => {
               </h2>
             </Link>
             <h4>
-              {releaseDate.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {albumData.date.isoString != "" ? (
+                <>
+                  {releaseDate.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </>
+              ) : (
+                <></>
+              )}
             </h4>
           </div>
           <div>
@@ -139,7 +154,9 @@ const AlbumInfo = ({ params }) => {
       </div>
       <div className="container">
         <div className="row">
-          <h1 className="titles labels">Tracklist</h1>
+          <h1 className="titles labels">
+            {albumTracks.totalCount != 0 ? <>Tracklist</> : <></>}
+          </h1>
           <ul className="music_list">
             {albumTracks.items ? (
               <>
@@ -161,7 +178,11 @@ const AlbumInfo = ({ params }) => {
       <div className="container">
         <div className="row">
           <h1 className="titles labels">
-            More by {albumData.artists.items[0].profile.name}
+            {albumData.artists.items[0].profile.name != "" ? (
+              <>More by {albumData.artists.items[0].profile.name}</>
+            ) : (
+              <></>
+            )}
           </h1>
           <ul className="toptrack_list">
             {albumData.moreAlbumsByArtist.items[0].discography.popularReleases

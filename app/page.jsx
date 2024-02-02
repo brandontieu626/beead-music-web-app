@@ -17,8 +17,6 @@ export const Home = () => {
   useEffect(() => {
     getPopularTracks();
   }, []);
-
-  console.log(songs);
   return (
     <div className="container">
       <div className="row">
