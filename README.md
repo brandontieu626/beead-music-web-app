@@ -1,36 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Music discovery website (Beead Music)
 
-## Getting Started
+## A web application for discovering and listening to music
 
-First, run the development server:
+This project was built using React.js, Next.js, HTML, and CSS. I created this project to continue practicing my front-end skills and familiarize myself with Next.js 14 (App Router). I also wanted to practice CSS fundamentals without using external libraries.
+In the future, I want to include a backend portion that includes features like users, rating songs/albums, creating tier lists, and allowing users to write comments.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Created a minimalistic and retro-inspired front end using React.js
+- Used latest version of Next.js which utilizes the App Router
+- Pulled music data from Spotify API and latest news on music from news API
+- Utilized spotify player to include a built music player
+- Responsive web design
