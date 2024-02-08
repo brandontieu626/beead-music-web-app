@@ -217,20 +217,6 @@ const fetchNewReleases = async (query) => {
 
 const fetchNewsArticles = async () => {
   const url =
-    "https://newsapi.org/v2/everything?" +
-    "q=music&" +
-    "sortBy=relevancy&" +
-    "pageSize=25&" +
-    "apiKey=" +
-    process.env.NEXT_PUBLIC_NEWS_API_KEY;
-
-  const response = await axios.get(url);
-
-  return response.data.articles;
-};
-
-const fetchTopNews = async () => {
-  const url =
     "https://gnews.io/api/v4/search?q=music&max=10&country=us&lang=en&apikey=" +
     process.env.NEXT_PUBLIC_NEWS_G_NEWS_API_KEY;
 
@@ -252,5 +238,4 @@ export {
   fetchSearch,
   fetchNewReleases,
   fetchNewsArticles,
-  fetchTopNews,
 };
