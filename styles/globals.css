@@ -414,6 +414,7 @@ a {
 
 .article:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .article_title {

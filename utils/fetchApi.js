@@ -236,7 +236,7 @@ const fetchTopNews = async () => {
 
   const response = await axios.get(url);
 
-  return response.data;
+  return response.data.articles;
 };
 
 export {

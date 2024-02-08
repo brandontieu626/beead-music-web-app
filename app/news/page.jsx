@@ -17,7 +17,7 @@ const News = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      getNews();
+      // getNews();
       getTopNews();
     }, 500);
   }, []);
@@ -26,20 +26,18 @@ const News = () => {
   return (
     <div className="container">
       <div className="row">
-        {news.length != 0 ? (
+        {topNews.length != 0 ? (
           <ul className="article_list">
-            {news.map((article, i) => (
+            {topNews.map((article, i) => (
               <Article
                 key={i}
                 title={article.title}
                 desc={article.description}
-                author={article.author}
+                publisher={article.source.name}
                 published={article.publishedAt}
                 link={article.url}
                 cover={
-                  article.urlToImage
-                    ? article.urlToImage
-                    : "/images/defaultarticle.jpg"
+                  article.image ? article.image : "/images/defaultarticle.jpg"
                 }
               />
             ))}
