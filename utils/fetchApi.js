@@ -229,6 +229,16 @@ const fetchNewsArticles = async () => {
   return response.data.articles;
 };
 
+const fetchTopNews = async () => {
+  const url =
+    "https://gnews.io/api/v4/search?q=music&max=25&country=us&lang=en&apikey=" +
+    process.env.NEXT_PUBLIC_NEWS_G_NEWS_API_KEY;
+
+  const response = await axios.get(url);
+
+  return response.data;
+};
+
 export {
   fetchPlaylistTracks,
   fetchTrack,
@@ -242,4 +252,5 @@ export {
   fetchSearch,
   fetchNewReleases,
   fetchNewsArticles,
+  fetchTopNews,
 };

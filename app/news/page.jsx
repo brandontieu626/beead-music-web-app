@@ -1,19 +1,28 @@
 "use client";
-import { fetchNewsArticles } from "@/utils/fetchApi";
+import { fetchNewsArticles, fetchTopNews } from "@/utils/fetchApi";
 import { useState, useEffect } from "react";
 import Article from "@/components/Article";
 const News = () => {
   const [news, setNews] = useState([]);
+  const [topNews, setTopNews] = useState([]);
   async function getNews() {
     const data = await fetchNewsArticles();
     setNews(data);
   }
 
+  async function getTopNews() {
+    const data = await fetchTopNews();
+    setTopNews(data);
+  }
+
   useEffect(() => {
     setTimeout(() => {
       getNews();
+      getTopNews();
     }, 500);
   }, []);
+
+  console.log(topNews);
   return (
     <div className="container">
       <div className="row">
