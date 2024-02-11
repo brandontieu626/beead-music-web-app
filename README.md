@@ -2,6 +2,8 @@
 
 A web application where users can discover, listen to, and read articles on music.
 
+![alt text](image.png)
+
 ## Project Description
 
 This project was built using React.js, Next.js, HTML, and CSS.
@@ -54,12 +56,13 @@ These instructions will get you a local copy of this project running on your mac
 
 11. Set NEXT_PUBLIC_NEWS_G_NEWS_API_KEY=your API key
 
-12. In the project directory run: ### `npm install`
+12. In the project directory run: `npm install` to install all dependencies
 
-13. To start the application run: ### `npm run dev`
+13. To start the application run: `npm run dev`
 
 14. Open it in http://localhost:3000 to view in browser.
 
-## Visuals
-
 ## Authors
+
+- [Brandon Tieu](https://github.com/brandontieu626)
+- **brandontieu626@gmail.com**
