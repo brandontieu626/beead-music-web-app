@@ -8,7 +8,7 @@ A web application where users can discover, listen to, and read articles on musi
 
 This project was built using React.js, Next.js, HTML, and CSS.
 
-I created this project to continue practicing my web development skills and familiarize myself with Next.js 14 (App Router). I decided on React with Next.js because as development continues it seems like Next.js is becoming the framework of choice to work with React. As I was reading through the React documentation and their design practices, they are encouraging incorporating Next.js as the main framework. I also wanted to practice CSS fundamentals and responsive web design without using external libraries.
+I created this project to continue practicing my web development skills and familiarize myself with Next.js 14 (App Router). I decided on using Next.js because through reading React documentation, it seems that the devs are supporting Next.js as the main framework of choice. I also wanted to practice CSS fundamentals and responsive web design without using external libraries.
 
 ### Design
 
