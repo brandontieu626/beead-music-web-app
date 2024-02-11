@@ -65,4 +65,3 @@ These instructions will get you a local copy of this project running on your mac
 ## Authors
 
 - [Brandon Tieu](https://github.com/brandontieu626)
-- **brandontieu626@gmail.com**
