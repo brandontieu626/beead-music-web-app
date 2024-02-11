@@ -2,7 +2,7 @@
 
 A web application where users can discover, listen to, and read articles on music.
 
-![alt text](image.png)
+![alt text](beeadsnip.png)
 
 ## Project Description
 
