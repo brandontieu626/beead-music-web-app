@@ -4,7 +4,7 @@ A web application where users can discover, listen to, and read articles on musi
 
 ![alt text](beeadsnip.png)
 
-## Project Description
+## Description
 
 This project was built using React.js, Next.js, HTML, and CSS.
 
